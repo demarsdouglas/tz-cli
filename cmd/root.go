@@ -8,6 +8,7 @@ import (
     "github.com/demarsdouglas/tz-cli/timeutil"
 )
 
+var version = "dev"
 var live bool
 
 var rootCmd = &cobra.Command{
@@ -32,6 +33,8 @@ func Execute() {
 }
 
 func init() {
+	rootCmd.Version = version
+	rootCmd.SetVersionTemplate("tz version {{.Version}}\n")
 	rootCmd.Flags().BoolVarP(&live, "live", "l", false, "Refresh every second")
 	rootCmd.AddCommand(addCmd, removeCmd, listCmd, resetCmd)
 }
