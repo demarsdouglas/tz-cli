@@ -19,7 +19,7 @@ builds:
       - -s -w -X github.com/demarsdouglas/tz-cli/cmd.version={{.Version}}
 
 archives:
-  - format: tar.gz
+  - formats: [ 'tar.gz' ]
     name_template: "tz-{{ .Os }}-{{ .Arch }}"
 
 checksum:
@@ -28,18 +28,17 @@ checksum:
 changelog:
   sort: desc
 
-brews:
+homebrew_casks:
   - name: tz
+    binary: tz
     description: "Realtime timezone viewer CLI"
     homepage: "https://github.com/demarsdouglas/tz-cli"
-    repository:
-      owner: demarsdouglas
-      name: homebrew-tap
-      branch: main
-      folder: Formula
     commit_author:
-      name: GoReleaser Bot
+      name: goreleaserbot
       email: bot@goreleaser.com
-    install: |
-      bin.install "tz"
+    directory: Casks
+    url:
+      template: "https://github.com/demarsdouglas/tz-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+      verified: "github.com/demarsdouglas/tz-cli"
+
 
