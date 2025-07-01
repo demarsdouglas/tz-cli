@@ -5,7 +5,7 @@
 *.so
 *.dylib
 *.test
-tz     # compiled binary name
+tz
 
 # Build and local tooling
 /dist/
