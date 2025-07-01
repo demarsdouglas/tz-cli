@@ -58,3 +58,27 @@ func AddZone(zone string) error {
 
 	return os.WriteFile(path, data, 0644)
 }
+
+func RemoveZone(zone string) error {
+	cfg := Config{Zones: LoadZones()}
+
+	newZones := []string{}
+	found := false
+	for _, z := range cfg.Zones {
+		if z == zone {
+			found = true
+			continue
+		}
+		newZones = append(newZones, z)
+	}
+	if !found {
+		return errors.New("timezone not found in config")
+	}
+	cfg.Zones = newZones
+
+	data, err := json.MarshalIndent(cfg, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(configFilePath(), data, 0644)
+}
