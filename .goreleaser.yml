@@ -32,13 +32,14 @@ brews:
   - name: tz
     description: "Realtime timezone viewer CLI"
     homepage: "https://github.com/demarsdouglas/tz-cli"
-    tap:
+    repository:
       owner: demarsdouglas
       name: homebrew-tap
       branch: main
-      folder: Formula
+      directory: Formula
     commit_author:
       name: GoReleaser Bot
       email: bot@goreleaser.com
     install: |
       bin.install "tz"
+
