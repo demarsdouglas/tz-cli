@@ -21,12 +21,17 @@ I built this tool as the current company I'm working for exists in multiple geog
 #### Display configured timezones
 ```bash
 $ tz
-🕒 Timezone Overview:
----------------------------
-Local                2025-07-01 13:21:03
-America/New_York     2025-07-01 13:21:03
-America/Los_Angeles  2025-07-01 10:21:03
-Australia/Brisbane   2025-07-02 03:21:03
+🕒 Timezone Overview (relative):
+────────────────────────────────────────────────────────────
+🏠 Local                2025-07-01 15:34:57 (you are here)
+🌍 Asia/Tokyo           2025-07-02 04:34:57 (+13h)    
+🌍 Australia/Brisbane   2025-07-02 05:34:57 (+14h)    
+🌍 Pacific/Auckland     2025-07-02 07:34:57 (+16h)    
+🌍 America/Los_Angeles  2025-07-01 12:34:57 (-3h)     
+🌍 America/Denver       2025-07-01 13:34:57 (-2h)     
+🌍 America/Chicago      2025-07-01 14:34:57 (-1h)     
+🟢 America/New_York     2025-07-01 15:34:57 (same)    
+🌍 Europe/London        2025-07-01 20:34:57 (+5h)
 ```
 
 #### Flags

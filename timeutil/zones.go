@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 	"strings"
+	"sort"
 )
 
 var timeZones = []string{
@@ -109,10 +110,19 @@ func FindMatchingZone(input string) (string, error) {
 
 func PrintZones(zones []string) {
 	now := time.Now()
+	localLoc := now.Location()
+	localTime := now.In(localLoc)
+	_, localOffset := localTime.Zone()
+	localZone := localLoc.String()
 
-	fmt.Println("🕒 Timezone Overview:\n---------------------------")
+	type zoneTime struct {
+		Name       string
+		Time       time.Time
+		OffsetText string
+		Emoji      string
+	}
 
-	fmt.Printf("%-20s %s\n", "Local", now.Format("2006-01-02 15:04:05"))
+	var zoneTimes []zoneTime
 
 	for _, zone := range zones {
 		loc, err := time.LoadLocation(zone)
@@ -120,7 +130,47 @@ func PrintZones(zones []string) {
 			fmt.Printf("%-20s ❌ Invalid timezone\n", zone)
 			continue
 		}
+
 		tzTime := now.In(loc)
-		fmt.Printf("%-20s %s\n", zone, tzTime.Format("2006-01-02 15:04:05"))
+		_, zoneOffset := tzTime.Zone()
+		diffHours := (zoneOffset - localOffset) / 3600
+
+		offsetText := ""
+		switch {
+		case zone == localZone:
+			offsetText = "(you are here)"
+		case zoneOffset == localOffset:
+			offsetText = "(same)"
+		case diffHours > 0:
+			offsetText = fmt.Sprintf("(+%dh)", diffHours)
+		default:
+			offsetText = fmt.Sprintf("(%dh)", diffHours)
+		}
+
+		emoji := "🌍"
+		if zone == localZone {
+			emoji = "🏠"
+		} else if zoneOffset == localOffset {
+			emoji = "🟢"
+		}
+
+		zoneTimes = append(zoneTimes, zoneTime{
+			Name:       zone,
+			Time:       tzTime,
+			OffsetText: offsetText,
+			Emoji:      emoji,
+		})
+	}
+
+	sort.Slice(zoneTimes, func(i, j int) bool {
+		return zoneTimes[i].Time.Format("15:04") < zoneTimes[j].Time.Format("15:04")
+	})
+
+	fmt.Println("🕒 Timezone Overview (relative):")
+	fmt.Println("────────────────────────────────────────────────────────────")
+	fmt.Printf("🏠 %-20s %s %-10s\n", "Local", now.Format("2006-01-02 15:04:05"), "(you are here)")
+
+	for _, z := range zoneTimes {
+		fmt.Printf("%s %-20s %s %-10s\n", z.Emoji, z.Name, z.Time.Format("2006-01-02 15:04:05"), z.OffsetText)
 	}
 }
