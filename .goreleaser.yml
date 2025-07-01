@@ -35,7 +35,10 @@ brews:
     tap:
       owner: demarsdouglas
       name: homebrew-tap
+      branch: main
       folder: Formula
     commit_author:
       name: GoReleaser Bot
       email: bot@goreleaser.com
+    install: |
+      bin.install "tz"
