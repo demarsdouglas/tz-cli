@@ -30,6 +30,8 @@ changelog:
 
 brews:
   - name: tz
+    homepage: "https://github.com/demarsdouglas/tz-cli"
+    description: "Realtime timezone viewer CLI"
     github:
       owner: demarsdouglas
       name: homebrew-tap
@@ -37,5 +39,3 @@ brews:
       name: GoReleaser Bot
       email: bot@goreleaser.com
     folder: Formula
-    description: "Realtime timezone viewer CLI"
-    homepage: "https://github.com/demarsdouglas/tz-cli"
