@@ -30,7 +30,7 @@ changelog:
 
 brews:
   - name: tz
-    tap:
+    github:
       owner: demarsdouglas
       name: homebrew-tap
     commit_author:
