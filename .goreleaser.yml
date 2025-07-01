@@ -40,5 +40,9 @@ homebrew_casks:
     url:
       template: "https://github.com/demarsdouglas/tz-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
       verified: "github.com/demarsdouglas/tz-cli"
+    repository:
+      owner: demarsdouglas
+      name: homebrew-tap
+      branch: main
 
 

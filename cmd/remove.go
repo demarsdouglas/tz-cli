@@ -2,20 +2,29 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 	"github.com/spf13/cobra"
 	"github.com/demarsdouglas/tz-cli/config"
+	"github.com/demarsdouglas/tz-cli/timeutil"
 )
 
 var removeCmd = &cobra.Command{
 	Use:   "remove [timezone]",
-	Short: "Remove a timezone from the config",
-	Args:  cobra.ExactArgs(1),
+	Short: "Remove a timezone",
+	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		zone := args[0]
+		input := strings.Join(args, " ")
+
+		zone, err := timeutil.FindMatchingZone(input)
+		if err != nil {
+			fmt.Println("❌", err)
+			return
+		}
+
 		if err := config.RemoveZone(zone); err != nil {
-			fmt.Println("Error:", err)
+			fmt.Println("❌ Failed to remove timezone:", err)
 		} else {
-			fmt.Println("Removed:", zone)
+			fmt.Println("✅ Removed timezone:", zone)
 		}
 	},
 }
