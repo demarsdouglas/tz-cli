@@ -5,7 +5,7 @@
 *.so
 *.dylib
 *.test
-tz
+tz*
 
 # Build and local tooling
 /dist/
