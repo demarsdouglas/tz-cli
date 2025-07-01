@@ -4,7 +4,8 @@ A simple CLI tool for viewing timezones in real time.
 
 ![Go](https://img.shields.io/badge/Go-1.22-blue)
 ![Release](https://img.shields.io/github/v/release/demarsdouglas/tz-cli)
-![License](https://img.shields.io/github/license/demarsdouglas/tz-cli)
+[![License](https://img.shields.io/github/license/demarsdouglas/tz-cli)](https://github.com/demarsdouglas/tz-cli/blob/main/LICENSE)
+
 
 "_Time is hard_" - one of my previous managers
 
@@ -34,6 +35,7 @@ Australia/Brisbane   2025-07-02 03:21:03
 ```bash
 --help       Show help information
 --version    Show version information
+--live       Update the values in real time
 ```
 
 #### Add a timezone
