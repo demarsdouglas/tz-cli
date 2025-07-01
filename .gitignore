@@ -1,0 +1,34 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+tz     # compiled binary name
+
+# Build and local tooling
+/dist/
+/build/
+/bin/
+/out/
+
+# Dependency and tooling files
+vendor/
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Go coverage and profiling
+*.cover
+*.cov
+*.prof
