@@ -21,6 +21,7 @@ I built this tool as the current company I'm working for exists in multiple geog
 
 #### Display configured timezones
 ```bash
+$ tz
 🕒 Timezone Overview:
 ---------------------------
 Local                2025-07-01 13:21:03
