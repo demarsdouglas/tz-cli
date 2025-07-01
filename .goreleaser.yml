@@ -1,4 +1,5 @@
-# .goreleaser.yml
+version: 2
+
 project_name: tz
 release:
   github:
@@ -20,8 +21,6 @@ builds:
 archives:
   - format: tar.gz
     name_template: "tz-{{ .Os }}-{{ .Arch }}"
-    files:
-      - tz
 
 checksum:
   name_template: "checksums.txt"
