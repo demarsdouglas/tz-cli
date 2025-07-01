@@ -56,6 +56,7 @@ $ tz remove brisbane
 ```bash
 brew tap demarsdouglas/homebrew-tap
 brew install --cask tz
+sudo xattr -rd com.apple.quarantine $(which tz)
 ```
 
 ### Manual (any OS)
