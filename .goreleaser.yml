@@ -36,7 +36,7 @@ brews:
       owner: demarsdouglas
       name: homebrew-tap
       branch: main
-      directory: Formula
+      folder: Formula
     commit_author:
       name: GoReleaser Bot
       email: bot@goreleaser.com
