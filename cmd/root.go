@@ -33,5 +33,5 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolVarP(&live, "live", "l", false, "Refresh every second")
-	rootCmd.AddCommand(addCmd, removeCmd)
+	rootCmd.AddCommand(addCmd, removeCmd, listCmd)
 }
