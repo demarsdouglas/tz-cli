@@ -4,10 +4,8 @@ A simple CLI tool for viewing timezones in real time.
 
 ![Go](https://img.shields.io/badge/Go-1.22-blue)
 ![Release](https://img.shields.io/github/v/release/demarsdouglas/tz-cli)
-[![License](https://img.shields.io/github/license/demarsdouglas/tz-cli)](https://github.com/demarsdouglas/tz-cli/blob/main/LICENSE)
 
-
-"_Time is hard_" - one of my previous managers
+"_Time is hard_" - one of my previous managers, often
 
 I built this tool as the current company I'm working for exists in multiple geographies and I'm admittedly horrible at quickly converting timezones in my head. Sometimes I just need to know "what time is it in Brisbane right now" and this tool solves that.
 
@@ -32,7 +30,7 @@ Australia/Brisbane   2025-07-02 03:21:03
 ```
 
 #### Flags
-```bash
+```
 --help       Show help information
 --version    Show version information
 --live       Update the values in real time
