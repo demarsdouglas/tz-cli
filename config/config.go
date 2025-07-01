@@ -82,3 +82,7 @@ func RemoveZone(zone string) error {
 	}
 	return os.WriteFile(configFilePath(), data, 0644)
 }
+
+func ConfigFilePath() string {
+	return configFilePath()
+}
