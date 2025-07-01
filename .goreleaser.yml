@@ -1,0 +1,30 @@
+# .goreleaser.yml
+project_name: tz
+release:
+  github:
+    owner: demarsdouglas
+    name: tz-cli
+
+builds:
+  - id: tz
+    main: ./main.go
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X github.com/demarsdouglas/tz-cli/cmd.version={{.Version}}
+
+archives:
+  - format: tar.gz
+    name_template: "tz-{{ .Os }}-{{ .Arch }}"
+    files:
+      - tz
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: desc
