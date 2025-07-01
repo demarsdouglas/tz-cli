@@ -54,8 +54,8 @@ $ tz remove brisbane
 ### Homebrew (macOS/Linux)
 
 ```bash
-brew tap demarsdouglas/tap
-brew install tz
+brew tap demarsdouglas/homebrew-tap
+brew install --cask tz
 ```
 
 ### Manual (any OS)
